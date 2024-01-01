@@ -16,12 +16,16 @@ let myModelIconClose = document.querySelector('.myModel i ');
 // console.log(normalInput);
 // console.log(selectInput);
 
- 
 
 
-myModelIconClose.addEventListener("click", function () {
-    myModel.classList.add("none");
-});
+if(myModelIconClose != null){
+    myModelIconClose.addEventListener("click", function () {
+        myModel.classList.add("none");
+    });
+}else{
+    console.log('hello');
+}
+
 
 // Validation of Inputs File TExt
 let checkTextInputs = () => {
@@ -243,28 +247,31 @@ for (let i = 0; i < numberInput.length; i++) {
 
 // Confirmation box
 let CheckConfirmation = () => {
-    confirmationCheckbox.addEventListener("change", function () {
-        if (this.checked) {
-            console.log("True confirmation");
-            // If the input is not empty, remove the span if it exists
-            let nextElement = this.nextElementSibling;
-            if (nextElement && nextElement.classList.contains('text-danger')) {
-                nextElement.remove();
+    if(confirmationCheckbox != null){
+        confirmationCheckbox.addEventListener("change", function () {
+            if (this.checked) {
+                console.log("True confirmation");
+                // If the input is not empty, remove the span if it exists
+                let nextElement = this.nextElementSibling;
+                if (nextElement && nextElement.classList.contains('text-danger')) {
+                    nextElement.remove();
+                }
+
+                // Optionally, you can remove the data-text-added attribute
+                this.removeAttribute('data-text-added');
+            } else {
+                if (!this.hasAttribute('data-text-added')) {
+                    let newText = `<span class='text-danger'>   برجاءالموافقه علي هذا  </span>`;
+
+                    this.insertAdjacentHTML('afterend', newText);
+
+                    // Set a flag to indicate that the text has been added
+                    this.setAttribute('data-text-added', 'true');
+                }
             }
+        })
+    }
 
-            // Optionally, you can remove the data-text-added attribute
-            this.removeAttribute('data-text-added');
-        } else {
-            if (!this.hasAttribute('data-text-added')) {
-                let newText = `<span class='text-danger'>   برجاءالموافقه علي هذا  </span>`;
-
-                this.insertAdjacentHTML('afterend', newText);
-
-                // Set a flag to indicate that the text has been added
-                this.setAttribute('data-text-added', 'true');
-            }
-        }
-    })
 
 }
 
