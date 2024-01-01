@@ -1,0 +1,272 @@
+:root {
+    --fixed-color: #0F6634;
+}
+
+body {
+    direction: rtl;
+    /* font-family: 'JF-Flat-light';? */
+}
+
+#header {
+    margin-top: 20px;
+}
+
+.first_header .row {
+    justify-content: space-between;
+}
+
+.first_header .logo {
+    width: 250px;
+}
+
+.first_header .tw i {
+    background-color: var(--fixed-color, 'black');
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    /* order: unset; */
+}
+
+/* .first_header .tw i:hover{
+    background-color: white;
+    color: var(--fixed-color, 'black');
+} */
+
+#header .navbar {
+    background-color: var(--fixed-color);
+    padding: 0;
+    margin-top: 10px;
+}
+
+#header .navbar .nav-item {
+    /* background-color: red; */
+
+    margin: 0px 0px;
+    transition: all .5s;
+}
+
+#header .navbar .nav-link {
+    color: white;
+    padding: 10px;
+}
+
+#header .navbar .nav-item:hover {
+    background-color: white;
+    color: black;
+}
+
+#header .navbar .nav-item:hover .nav-link {
+    color: black;
+}
+
+#header .navbar .nav-link.active {
+    background-color: white;
+    color: black !important;
+}
+
+
+
+/* Title Section */
+#title {
+    background-color: rgb(171, 138, 49);
+    background-image: url('../img/pattern2.png');
+    /* background-size:0px ; */
+    text-align: center;
+    padding: 39px 0px;
+}
+
+#title h2 {
+    color: white;
+    font-weight: 300;
+    font-size: 34px;
+}
+
+/* Apply Sction */
+#apply {
+    /* background-color: red; */
+    padding: 50px 0px;
+}
+
+#apply .person {
+    background-color: var(--fixed-color);
+    padding: 50px 0px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s;
+}
+
+#apply .person a {
+    color: white;
+    text-decoration: none;
+
+}
+
+#apply .person:hover {
+    transform: scale(1.1112, 1.1112);
+}
+
+#apply .person p i {
+    font-size: 50px;
+    margin: 10px;
+}
+
+#apply .person h2 {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+
+#footer {
+    background-color: var(--fixed-color);
+    color: white;
+    padding: 50px 0px;
+}
+
+#footer ul {
+    list-style-type: none;
+}
+
+#footer ul li i {
+    /* font-size: 12px; */
+    margin: 10px 0px;
+}
+
+.lastFooter {
+    background-color: rgb(0, 56, 24);
+    color: white;
+    font-size: 20px;
+    padding: 20px 0px;
+}
+
+.first_header .icon {
+    display: none;
+}
+
+.offcanvas {
+    max-width: 65%;
+    background-color: var(--fixed-color);
+    color: white;
+    padding: 0 !important;
+}
+
+.offcanvas-body {
+    padding: 0;
+}
+
+.offcanvas-body a {
+    width: 100%;
+    padding: 20px 20px;
+    border-bottom: 2px solid white;
+    font-weight: bold;
+    transition: all .5s;
+}
+
+.offcanvas-body a:hover {
+    background-color: #08311a;
+}
+
+@media (max-width:700px) {
+    .first_header .tw {
+        order: -1;
+        margin-bottom: 10px;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    #apply .person {
+        margin-top: 20px;
+    }
+
+    #footer {
+        text-align: center;
+    }
+
+    #footer .div3 {
+        margin: 20px 0px;
+
+    }
+
+
+
+    .lastFooter {
+        text-align: center;
+    }
+
+    .first_header .icon button {
+        background-color: transparent;
+        border: 0;
+    }
+
+    .first_header .icon {
+        display: block;
+        margin-top: 40px;
+        font-size: 30px;
+    }
+}
+
+
+#personForm {
+    padding: 20px 0px;
+    font-size: 19px;
+}
+
+#personForm .form-group {
+    margin: 10px 0px;
+}
+
+#personForm .form-group .form-control {
+    margin: 10px 0px;
+}
+
+#personForm .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#personForm button {
+    background-color: var(--fixed-color);
+    color: white;
+}
+
+
+
+
+.block {
+    display: block;
+}
+
+.myModel {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.myModel .person {
+    background-color: var(--fixed-color);
+    padding: 40px;
+    text-align: center;
+    color: white;
+
+}
+.myModel .person i{
+font-size: 30px;
+transition: all .5s;
+cursor: pointer;
+}
+.myModel .person i:hover{
+    font-size: 32px;
+}
+
+
+.none {
+    display: none !important;
+}
