@@ -11,10 +11,19 @@
         <div class="row justify-content-between  ">
             <div class="col-md-4">
                 <div class="person">
-                    <a href="{{ route('user.ifFindRequest') }}">
-                        <p><i class="fa-solid fa-users"></i></p>
-                        <h2> تقديم الطلب للافراد </h2>
-                    </a>
+                    @if ($status->status == 'مغلق')
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <p><i class="fa-solid fa-users"></i></p>
+                            <h2> تقديم الطلب للافراد </h2>
+                        </a>
+                    @else
+                        <a href="{{ route('user.ifFindRequest') }}">
+                            <p><i class="fa-solid fa-users"></i></p>
+                            <h2> تقديم الطلب للافراد </h2>
+                        </a>
+                    @endif
+
+
                 </div>
             </div>
             <div class="col-md-4">
@@ -34,4 +43,24 @@
         </div>
     </div>
 </section>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ $status->message }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @include('userPages.layouts.script');

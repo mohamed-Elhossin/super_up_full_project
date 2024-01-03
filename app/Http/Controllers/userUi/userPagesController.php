@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\userUi;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class userPagesController extends Controller
 {
     // Go to index page
     public function index()
     {
-        return view("userPages.index");
+        $status = DB::table("apply_status")->first();
+        // return 'asdfsd';
+        // dd($status);
+        return view("userPages.index",compact('status'));
     }
     // Got To apply personal Page
     public function applyPage()

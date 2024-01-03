@@ -54,6 +54,9 @@
                         {{-- 4 --}}
                         <input type="number" value="{{ old('numberOfId') }}" name="numberOfId" id="normalInput"
                             class="form-control @error('numberOfId') is-invalid @enderror  ">
+                            @error('numberOfId')
+                            <span>لديك طلب بالفعل</span>
+                            @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -79,6 +82,9 @@
                         {{-- 7 --}}
                         <input type="date" value="{{ old('expire_data_id') }}" name="expire_data_id" id="normalInput"
                             class="form-control @error('expire_data_id') is-invalid @enderror  ">
+                            @error('expire_data_id')
+                            <span> ارجو ادخال تاريخ صحيح </span>
+                            @enderror
                     </div>
                 </div>
                 <div class="col-md-6">

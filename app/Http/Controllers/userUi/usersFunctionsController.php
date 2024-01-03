@@ -182,8 +182,8 @@ class usersFunctionsController extends Controller
             ->where('request_number', '=', $request_number)
             ->first();
         if ($data) {
-            // $request_number = $data->request_number;
-            return redirect()->back()->with('success', "تمام انت موجود بس لسه هعرضلك حاله الطلب");
+            return view('userPages.yourRequest', compact('data'));
+            // return redirect()->back()->with('success', "        لسه       ");
         } else {
             return redirect()->back()->with('success', "لم يأتي دورك لسه اصبر شويه");
         }

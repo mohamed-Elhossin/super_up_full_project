@@ -40,13 +40,17 @@ return new class extends Migration
             $table->string("rent_image")->nullable(); //24
             // $table->string("life_type");
             $table->string("national_address"); //25
-            $table->string("phone");//26
-            $table->string("bank");//27
+            $table->string("phone"); //26
+            $table->string("bank"); //27
             $table->string("account_holder"); //28
-            $table->integer("account_number");//29
-            $table->string("description_request")->nullable();//30
-            $table->string('confirmationCheckbox');//31
-            $table->integer('request_number');//31
+            $table->integer("account_number"); //29
+            $table->string("description_request")->nullable(); //30
+            $table->string('confirmationCheckbox'); //31
+            $table->integer('request_number'); //31
+            $table->string('request_status')->default("لم يتم عليه شئ");
+            $table->bigInteger("admin_id")->unsigned()->nullable();
+            $table->foreign('admin_id')->references('id')->on("users");
+            $table->date("change_statusDate")->nullable();
             $table->timestamps();
         });
     }
