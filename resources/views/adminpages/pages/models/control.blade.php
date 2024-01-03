@@ -35,20 +35,20 @@
 
                             <div class="card-body">
                                 @if (Session::has('done'))
-                                <div class="card  card-success">
-                                    <div class="card-header">
-                                        <h3 class="card-title"> {{ Session::get('done') }}</h3>
+                                    <div class="card  card-success">
+                                        <div class="card-header">
+                                            <h3 class="card-title"> {{ Session::get('done') }}</h3>
 
-                                        <div class="card-tools">
-                                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                                    class="fas fa-times"></i>
-                                            </button>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                                        class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.card-tools -->
                                         </div>
-                                        <!-- /.card-tools -->
-                                    </div>
 
-                                </div>
-                            @endif
+                                    </div>
+                                @endif
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th> #</th>
@@ -105,7 +105,8 @@
                 <form action="{{ route('models.update', $apply_status->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="message" class="form-control" placeholder="تغير الرساله">
+                        <input type="text" value="{{ $apply_status->message }}" name="message" class="form-control"
+                            placeholder="تغير الرساله">
                     </div>
                     <div class="form-group">
                         <label for="close">مغلق</label>
@@ -118,7 +119,7 @@
                 </form>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close </button>
             </div>
         </div>
         <!-- /.modal-content -->
