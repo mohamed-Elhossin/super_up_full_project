@@ -28,7 +28,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class=" w-100 text-center card-title">
-                                    عرض الموظفين
+                                    عرض المناطق
                                 </h3>
                             </div>
                             <!-- /.card-header -->
@@ -48,23 +48,20 @@
                             </div>
                         @endif
                             <div class="card-body">
-                                <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a>
+                                <a href="{{ route('area.create') }}" class="btn btn-info my-3"> اضافه </a>
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>
-                                        <th>الاميل</th>
-                                        <th>الجوال</th>
+
                                         <th colspan="2">فعل</th>
                                     </tr>
-                                    @foreach ($employees as $item)
+                                    @foreach ($area as $item)
                                         <tr>
                                             <th>{{ $loop->iteration }}</th>
                                             <th>{{ $item->name }}</th>
-                                            <th>{{ $item->email }}</th>
-                                            <th>{{ $item->phone }}</th>
-                                            <th><a href="{{route("employee.edit",$item->id)}}">تعديل</a>  </th>
-                                            <th><a href="{{route("employee.delete",$item->id)}}">حذف</a>  </th>
+                                            <th><a href="{{route("area.edit",$item->id)}}">تعديل</a>  </th>
+                                            <th><a href="{{route("area.destroy",$item->id)}}">حذف</a>  </th>
                                             {{-- <th>{{ $item->name }}</th> --}}
                                         </tr>
                                     @endforeach

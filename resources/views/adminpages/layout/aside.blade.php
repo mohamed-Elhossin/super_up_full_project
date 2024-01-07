@@ -94,18 +94,8 @@
                         </p>
                     </a>
                 </li>
-
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            المناطق
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="{{route("city.index")}}" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             المدن
@@ -113,6 +103,16 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{route("area.index")}}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            المناطق
+
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>

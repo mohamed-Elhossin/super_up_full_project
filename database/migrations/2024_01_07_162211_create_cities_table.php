@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apply_status', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string("message");
-            $table->string("status");
-            $table->dateTime("workAfter")->nullable();
-            $table->bigInteger("admin_id")->unsigned();
-            $table->foreign('admin_id')->references('id')->on("users");
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apply_status');
+        Schema::dropIfExists('cities');
     }
 };

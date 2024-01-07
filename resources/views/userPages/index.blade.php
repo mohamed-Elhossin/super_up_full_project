@@ -11,18 +11,24 @@
         <div class="row justify-content-between  ">
             <div class="col-md-4">
                 <div class="person">
-                    @if ($status->status == 'مغلق')
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <p><i class="fa-solid fa-users"></i></p>
-                            <h2> تقديم الطلب للافراد </h2>
-                        </a>
+                    @if ($status != null)
+                        @if ($status->status == 'مغلق')
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <p><i class="fa-solid fa-users"></i></p>
+                                <h2> تقديم الطلب للافراد </h2>
+                            </a>
+                        @else
+                            <a href="{{ route('user.ifFindRequest') }}">
+                                <p><i class="fa-solid fa-users"></i></p>
+                                <h2> تقديم الطلب للافراد </h2>
+                            </a>
+                        @endif
                     @else
                         <a href="{{ route('user.ifFindRequest') }}">
                             <p><i class="fa-solid fa-users"></i></p>
                             <h2> تقديم الطلب للافراد </h2>
                         </a>
                     @endif
-
 
                 </div>
             </div>
@@ -50,12 +56,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                {{ $status->message }}
-            </div>
+            @if ($status != null)
+                <div class="modal-body">
+                    {{ $status->message }}
+                </div>
+            @endif
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
             </div>

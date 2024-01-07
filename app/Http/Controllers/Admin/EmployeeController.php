@@ -17,4 +17,30 @@ class EmployeeController extends Controller
     {
         return view('adminpages.pages.employees.add');
     }
+
+    public function edit($id)
+    {
+        $employees = User::where('id', $id)
+            ->first();
+        // dd($employees->name);
+        return view('adminpages.pages.employees.edit', compact('employees'));
+    }
+
+    public function update($id, Request  $request)
+    {
+        $employees = User::find($id);
+
+        $employees->name = $request->name;
+        $employees->email = $request->email;
+        $employees->phone = $request->phone;
+        $employees->save();
+        return redirect()->route("employee.index")->with("done", "تم تعديل الموظف بنجاح");
+    }
+
+    public function delete($id)
+    {
+        $employees = User::find($id);
+        $employees->delete();
+        return redirect()->route("employee.index")->with("done", "تم الحذف الموظف بنجاح");
+    }
 }

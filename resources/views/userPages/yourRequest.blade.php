@@ -50,7 +50,6 @@
                                     <div class="card  card-success">
                                         <div class="card-header">
                                             <h3 class="card-title"> {{ Session::get('done') }}</h3>
-
                                             <div class="card-tools">
                                                 <button type="button" class="btn btn-tool" data-card-widget="remove"><i
                                                         class="fas fa-times"></i>
@@ -59,12 +58,11 @@
                                             <!-- /.card-tools -->
                                         </div>
                                         <!-- /.card-header -->
-
                                         <!-- /.card-body -->
                                     </div>
                                 @endif
                                 <h3 class="w-100 card-title text-center">
-                                    حاله الطلب  : {{ $data->request_status}}
+                                    حاله الطلب : {{ $data->request_status }}
                                 </h3>
                                 <table id="example1" class="table MyTableView  table-bordered table-striped">
                                     <tr>
@@ -231,15 +229,9 @@
                                     <tr>
                                         <th> تاريخ التقدم :</th>
                                         <th> {{ $data->created_at }}</th>
-
                                         <th> تاريخ اخر تعديل :</th>
                                         <th> {{ $data->updated_at }}</th>
-
                                     </tr>
-
-
-
-
                                     {{-- <h6> حاله الطلب : </h6> --}}
                                 </table>
                             </div>

@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminPanelController;
 use App\Http\Controllers\Admin\ModelController;
 use App\Http\Controllers\userUi\userPagesController;
 use App\Http\Controllers\Admin\RequestFunctionController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\userUi\usersFunctionsController;
 
 //   Routes
@@ -39,10 +41,41 @@ Route::middleware('auth')->group(function () {
         Route::prefix("employee")->group(function () {
             Route::get('/', [EmployeeController::class, 'index'])->name("employee.index");
             Route::get('/create', [EmployeeController::class, 'create'])->name("employee.create");
+            Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name("employee.edit");
+            Route::post('/edit/{id}', [EmployeeController::class, 'update'])->name("employee.update");
+            Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name("employee.delete");
+
         });
         Route::prefix("models")->group(function () {
             Route::get('/', [ModelController::class, 'index'])->name("models.index");
+            Route::get('/create', [ModelController::class, 'create'])->name("model.create");
+            Route::post('/store', [ModelController::class, 'store'])->name("model.store");
             Route::post('/update/{id}', [ModelController::class, 'update'])->name("models.update");
+            Route::get('/lockAuto', [ModelController::class, 'lockAuto'])->name("model.lockAuto");
+        });
+
+        Route::prefix("city")->group(function () {
+            Route::get('/', [CityController::class, 'index'])->name("city.index");
+            Route::get('/create', [CityController::class, 'create'])->name("city.create");
+            Route::post('/store', [CityController::class, 'store'])->name("city.store");
+
+            Route::get('/edit/{id}', [CityController::class, 'edit'])->name("city.edit");
+            Route::post('/edit/{id}', [CityController::class, 'update'])->name("city.update");
+            Route::get('/delete/{id}', [CityController::class, 'destroy'])->name("city.destroy");
+
+        });
+
+
+
+        Route::prefix("area")->group(function () {
+            Route::get('/', [AreaController::class, 'index'])->name("area.index");
+            Route::get('/create', [AreaController::class, 'create'])->name("area.create");
+            Route::post('/store', [AreaController::class, 'store'])->name("area.store");
+
+            Route::get('/edit/{id}', [AreaController::class, 'edit'])->name("area.edit");
+            Route::post('/edit/{id}', [AreaController::class, 'update'])->name("area.update");
+            Route::get('/delete/{id}', [AreaController::class, 'destroy'])->name("area.destroy");
+
         });
     });
 });
@@ -60,9 +93,6 @@ Route::prefix("user")->group(function () {
     Route::post("ifFindOldRequest", [usersFunctionsController::class, 'ifFindOldRequest'])->name('user.ifFindOldRequest');
     Route::post("findMyRequest", [usersFunctionsController::class, 'findMyRequest'])->name('user.findMyRequest');
 });
-
-
-
 
 
 
