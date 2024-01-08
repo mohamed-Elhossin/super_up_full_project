@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Personal_form;
 
 class AdminPanelController extends Controller
 {
@@ -34,6 +35,14 @@ class AdminPanelController extends Controller
     public function index()
     {
         $this->lockAuto();
-        return view('adminpages.index');
+        // الحصول على عدد الطلبات بحالة "مراجعة"
+        $reviewCount = Personal_form::where('request_status', 'المراجعه')->count();
+
+        // الحصول على عدد الطلبات بحالة "اعتماد"
+        $doneCount = Personal_form::where('request_status', 'الاعتماد')->count();
+        $empty = Personal_form::where('request_status', 'لم يتم عليه شئ')->count();
+         // الحصول على عدد الطلبات بحالة "موافقة"
+        $approvalCount = Personal_form::where('request_status', 'الموافقه')->count();
+        return view('adminpages.index',compact('reviewCount','doneCount','empty','approvalCount'));
     }
 }

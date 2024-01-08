@@ -54,25 +54,35 @@
                         {{-- 4 --}}
                         <input type="number" value="{{ old('numberOfId') }}" name="numberOfId" id="normalInput"
                             class="form-control @error('numberOfId') is-invalid @enderror  ">
-                            @error('numberOfId')
+                        @error('numberOfId')
                             <span>لديك طلب بالفعل</span>
-                            @enderror
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for=""> المنطقة</label>
                         {{-- 5 --}}
-                        <input type="text" value="{{ old('area') }}" name="area" id="normalInput"
+                        <select   name="area" id="normalInput"
                             class="form-control @error('area') is-invalid @enderror  ">
+                            <option disabled selected> - الرجاء تحديد اخيار -</option>
+                            @foreach ($area as $item)
+                                <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">المدينة </label>
                         {{-- 6 --}}
-                        <input type="text" value="{{ old('city') }}" name="city" id="normalInput"
+                        <select name="city" id="normalInput"
                             class="form-control @error('city') is-invalid @enderror  ">
+                            <option disabled selected> - الرجاء تحديد اخيار -</option>
+                            @foreach ($city as $item)
+                                <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -82,9 +92,9 @@
                         {{-- 7 --}}
                         <input type="date" value="{{ old('expire_data_id') }}" name="expire_data_id" id="normalInput"
                             class="form-control @error('expire_data_id') is-invalid @enderror  ">
-                            @error('expire_data_id')
+                        @error('expire_data_id')
                             <span> ارجو ادخال تاريخ صحيح </span>
-                            @enderror
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -206,7 +216,8 @@
                     <div class="form-group">
                         <label for=""> الدخل الشهري الإجمالي </label>
                         {{-- 18 --}}
-                        <input type="number" value="{{ old('total_salary') }}" name="total_salary" id="normalInput"
+                        <input type="number" value="{{ old('total_salary') }}" name="total_salary"
+                            id="normalInput"
                             class=" numberInput form-control @error('total_salary') is-invalid @enderror  ">
 
                     </div>

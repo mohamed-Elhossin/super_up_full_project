@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\City;
 
 class userPagesController extends Controller
 {
@@ -42,7 +44,9 @@ class userPagesController extends Controller
     // Got To apply personal Page
     public function applyPage()
     {
-        return view("userPages.personalform");
+        $city  = City::all();
+        $area = Area::all();
+        return view("userPages.personalform", compact('city', 'area'));
     }
     // Go to Seatch Page
     public function find()

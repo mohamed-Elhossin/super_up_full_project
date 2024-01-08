@@ -33,23 +33,27 @@
                             </div>
                             <!-- /.card-header -->
                             @if (Session::has('done'))
-                            <div class="card  card-success">
-                                <div class="card-header">
-                                    <h3 class="card-title"> {{ Session::get('done') }}</h3>
+                                <div class="card  card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title"> {{ Session::get('done') }}</h3>
 
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                                class="fas fa-times"></i>
-                                        </button>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                                    class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <!-- /.card-tools -->
                                     </div>
-                                    <!-- /.card-tools -->
-                                </div>
 
+                                </div>
+                            @endif
+                            <div class="form-group col-6">
+                                <label for="">بحث</label>
+                                <input type="text" id="myInput" placeholder="بحث" class="form-control">
                             </div>
-                        @endif
                             <div class="card-body">
                                 <a href="{{ route('city.create') }}" class="btn btn-info my-3"> اضافه </a>
-                                <table class="table table-bordered table-striped">
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>
@@ -60,8 +64,8 @@
                                         <tr>
                                             <th>{{ $loop->iteration }}</th>
                                             <th>{{ $item->name }}</th>
-                                            <th><a href="{{route("city.edit",$item->id)}}">تعديل</a>  </th>
-                                            <th><a href="{{route("city.destroy",$item->id)}}">حذف</a>  </th>
+                                            <th><a href="{{ route('city.edit', $item->id) }}">تعديل</a> </th>
+                                            <th><a href="{{ route('city.destroy', $item->id) }}">حذف</a> </th>
                                             {{-- <th>{{ $item->name }}</th> --}}
                                         </tr>
                                     @endforeach
