@@ -28,6 +28,11 @@ class EmployeeController extends Controller
 
     public function update($id, Request  $request)
     {
+        $request->validate([
+            'name' => "required|string",
+            "email" => "required|email|unique:users,email,$id",
+            "phone" => "required|unique:users,phone,$id"
+        ]);
         $employees = User::find($id);
 
         $employees->name = $request->name;

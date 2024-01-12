@@ -185,7 +185,7 @@ class usersFunctionsController extends Controller
             return view('userPages.yourRequest', compact('data'));
             // return redirect()->back()->with('success', "        لسه       ");
         } else {
-            return redirect()->back()->with('success', "لم يأتي دورك لسه اصبر شويه");
+            return redirect()->back()->with('success', "لا يوجد طلب");
         }
     }
 }

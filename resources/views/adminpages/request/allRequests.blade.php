@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>عرض الطلبات تحت الموافقه</h1>
+                        <h1>عرض الطلبات بالكامل</h1>
                     </div>
 
                 </div>

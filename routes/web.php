@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminPanelController;
 use App\Http\Controllers\Admin\ModelController;
 use App\Http\Controllers\userUi\userPagesController;
 use App\Http\Controllers\Admin\RequestFunctionController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\userUi\usersFunctionsController;
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix("admin")->group(function () {
         Route::get('/', [AdminPanelController::class, 'index'])->name("admin.index");
         // List requests
+        Route::get("allAllRequest", [RequestFunctionController::class, 'allAllRequest'])->name('admin.request.allAllRequest');
+
         Route::get("allRequest", [RequestFunctionController::class, 'all'])->name('admin.request.all');
         Route::get("revasionRequest", [RequestFunctionController::class, 'revasion'])->name('admin.request.revasion');
         Route::get("approveRequest", [RequestFunctionController::class, 'approve'])->name('admin.request.approve');
@@ -44,7 +47,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name("employee.edit");
             Route::post('/edit/{id}', [EmployeeController::class, 'update'])->name("employee.update");
             Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name("employee.delete");
-
         });
         Route::prefix("models")->group(function () {
             Route::get('/', [ModelController::class, 'index'])->name("models.index");
@@ -62,8 +64,17 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [CityController::class, 'edit'])->name("city.edit");
             Route::post('/edit/{id}', [CityController::class, 'update'])->name("city.update");
             Route::get('/delete/{id}', [CityController::class, 'destroy'])->name("city.destroy");
-
         });
+        Route::prefix("users")->group(function () {
+
+            Route::get('/', [UserController::class, 'index'])->name("users.listAll");
+            Route::get('/managers', [UserController::class, 'managers'])->name("managers.index");
+            Route::get('/viewers', [UserController::class, 'viewers'])->name("viewers.index");
+
+            Route::get('/edit/{id}', [UserController::class, 'edit'])->name("users.edit");
+            Route::post('/edit/{id}', [UserController::class, 'update'])->name("users.update");
+        });
+
 
 
 
@@ -75,7 +86,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [AreaController::class, 'edit'])->name("area.edit");
             Route::post('/edit/{id}', [AreaController::class, 'update'])->name("area.update");
             Route::get('/delete/{id}', [AreaController::class, 'destroy'])->name("area.destroy");
-
         });
     });
 });

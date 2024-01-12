@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>عرض الطلبات بالكامل</h1>
+                        <h1>عرض  الموظفين</h1>
                     </div>
 
                 </div>
@@ -48,7 +48,7 @@
                             </div>
                         @endif
                             <div class="card-body">
-                                <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a>
+                                {{-- <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a> --}}
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>

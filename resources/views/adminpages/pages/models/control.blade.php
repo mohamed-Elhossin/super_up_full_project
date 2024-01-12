@@ -54,8 +54,10 @@
                                         <th> #</th>
                                         <th>الحاله</th>
                                         <th>الرساله</th>
-                                        <th>  تاريخ الانتهاء</th>
+                                        <th> تاريخ الانتهاء</th>
+                                        <th>العدد المسوح بالتقديم</th>
                                         <th>الادمن</th>
+
                                         <th>تغير</th>
                                     </tr>
 
@@ -64,6 +66,8 @@
                                         <th>{{ $apply_status->status }}</th>
                                         <th>{{ $apply_status->message }}</th>
                                         <th>{{ $apply_status->workAfter }}</th>
+                                        <th>{{ $apply_status->numberOfRequests }}</th>
+
                                         <th>{{ $userName }}</th>
                                         <th>
                                             <button data-toggle="modal" data-target="#modal-default"
@@ -117,8 +121,12 @@
                         <label for="open">متاح</label>
                         <input type="radio" name="status" id="open" value="متاح">
                         <hr>
-                        <label for="open">تاريخ الانتهاء</label>
+                        <label for="open">تاريخ الانتهاء مده الاتاحه</label>
                         <input type="datetime-local" name="date" class="form-control">
+                        <hr>
+                        <label for="open"> عدد الطلبات المقدمه </label>
+                        <input type="number" value="{{$apply_status->numberOfRequests}}" name="numberOfRequests" class="form-control">
+
                     </div>
 
                     <button class="btn btn-info"> تغير </button>

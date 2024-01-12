@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route("admin.index")}}" class="brand-link">
+    <a href="{{ route('admin.index') }}" class="brand-link">
 
         <span class="brand-text font-weight-light">Super Up </span>
     </a>
@@ -40,10 +40,17 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+
                         <li class="nav-item">
                             <a href="{{ route('admin.request.all') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> الطلبات الجديده </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.request.allAllRequest') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض جميع الطلبات </p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -68,14 +75,48 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('register') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            اضافه عضو
-
+                            الاعضاء
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> اضافه عضو </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('users.listAll') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض جميع الاعضاء </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('managers.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>ادرايين</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('employee.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>الموظين</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('viewers.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> المشرفين </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+
                 <li class="nav-item has-treeview">
                     <a href="{{ route('models.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -85,17 +126,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('employee.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            الموظفين
 
-                        </p>
-                    </a>
-                </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{route("city.index")}}" class="nav-link">
+                    <a href="{{ route('city.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             المدن
@@ -104,7 +137,7 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{route("area.index")}}" class="nav-link">
+                    <a href="{{ route('area.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             المناطق

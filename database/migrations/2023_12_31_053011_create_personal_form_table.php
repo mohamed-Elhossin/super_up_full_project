@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string("phone"); //26
             $table->string("bank"); //27
             $table->string("account_holder"); //28
-            $table->integer("account_number"); //29
+            $table->bigInteger("account_number"); //29
             $table->string("description_request")->nullable(); //30
             $table->string('confirmationCheckbox'); //31
             $table->integer('request_number'); //31

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("message");
             $table->string("status");
+            $table->integer("numberOfRequests");
             $table->dateTime("workAfter")->nullable();
             $table->bigInteger("admin_id")->unsigned();
             $table->foreign('admin_id')->references('id')->on("users");

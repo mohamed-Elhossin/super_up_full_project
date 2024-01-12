@@ -40,12 +40,10 @@
             <div class="person">
 
                 <p><i class="fa-solid fa-circle-xmark"></i> </p>
-                <h6>
-                    انت لديك طلب بالفعل وهذا رقم الطلب
-                </h6>
+
                 <hr>
                 <h4>
-                    رقم الطلب : {{ Session::get('success') }}
+                       {{ Session::get('success') }}
                 </h4>
             </div>
 

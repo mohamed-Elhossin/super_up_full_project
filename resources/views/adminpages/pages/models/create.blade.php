@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>     </h1>
+                        <h1> </h1>
                     </div>
 
                 </div>
@@ -41,7 +41,10 @@
                                         <input type="radio" name="status" id="open" value="متاح">
                                         <hr>
                                         <label for="open">تاريخ انتهاء</label>
-                                        <input type="datetime-local" name="date"   class="form-control" >
+                                        <input type="datetime-local" name="date" class="form-control">
+                                        <hr>
+                                        <label for="open"> عدد الطلبات المقدمه </label>
+                                        <input type="number" name="numberOfRequests" class="form-control">
                                     </div>
                                     <button class="btn btn-info"> تغير </button>
                                 </form>

@@ -8,13 +8,20 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Models\City;
-
+use App\Models\Personal_form;
 class userPagesController extends Controller
 {
     public function lockAuto()
     {
         $changeStatus = DB::table("apply_status")->first();
-        $ExpireDate = $changeStatus->workAfter;
+        $numberOfRequestsForm = $changeStatus->numberOfRequests;
+        $requestNumber = Personal_form::count();
+
+        if ($changeStatus  == null) {
+            $ExpireDate = Carbon::now()->format('Y-m-d H:i:s');
+        } else {
+            $ExpireDate = $changeStatus->workAfter;
+        }
 
         $dataFormatNow = Carbon::now()->format('Y-m-d H:i:s');
 
@@ -22,7 +29,7 @@ class userPagesController extends Controller
         $date2 = Carbon::parse($ExpireDate);
 
         // dd($dataFormatNow > $date2    );
-        if ($dataFormatNow > $date2) {
+        if ($dataFormatNow > $date2 || $requestNumber > $numberOfRequestsForm) {
             DB::table("apply_status")->update([
                 'status' => 'مغلق'
             ]);

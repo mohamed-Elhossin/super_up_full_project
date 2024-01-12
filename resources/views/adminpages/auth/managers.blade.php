@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>عرض    المدن</h1>
+                        <h1>عرض  الاداريين  </h1>
                     </div>
 
                 </div>
@@ -28,7 +28,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class=" w-100 text-center card-title">
-                                    عرض المدن
+                                    عرض الاعضاء بالصالحيات
                                 </h3>
                             </div>
                             <!-- /.card-header -->
@@ -47,25 +47,33 @@
 
                                 </div>
                             @endif
-                            <div class="form-group col-6">
-                                <label for="">بحث</label>
-                                <input type="text" id="myInput" placeholder="بحث" class="form-control">
-                            </div>
                             <div class="card-body">
-                                <a href="{{ route('city.create') }}" class="btn btn-info my-3"> اضافه </a>
-                                <table id="myTable" class="table table-bordered table-striped">
+                                <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a>
+                                <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>
-
+                                        <th>الاميل</th>
+                                        <th>الجوال</th>
+                                        <th>الصلاحيه</th>
                                         <th colspan="2">فعل</th>
                                     </tr>
-                                    @foreach ($city as $item)
+                                    @foreach ($users as $item)
                                         <tr>
                                             <th>{{ $loop->iteration }}</th>
                                             <th>{{ $item->name }}</th>
-                                            <th><a href="{{ route('city.edit', $item->id) }}">تعديل</a> </th>
-                                            <th><a href="{{ route('city.destroy', $item->id) }}">حذف</a> </th>
+                                            <th>{{ $item->email }}</th>
+                                            <th>{{ $item->phone }}</th>
+                                            @if ($item->rule == 'manager')
+                                                <th> اداري</th>
+                                            @elseif ($item->rule == 'employee')
+                                                <th> موظف</th>
+                                            @else
+                                                <th> مشرف</th>
+                                            @endif
+
+                                            <th><a href="{{ route('users.edit', $item->id) }}">تعديل</a> </th>
+                                            <th><a href="{{ route('employee.delete', $item->id) }}">حذف</a> </th>
                                             {{-- <th>{{ $item->name }}</th> --}}
                                         </tr>
                                     @endforeach

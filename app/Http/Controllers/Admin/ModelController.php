@@ -41,7 +41,8 @@ class ModelController extends Controller
                 'message' => $request->message,
                 'status' => $request->status,
                 'workAfter' => $request->date,
-                'admin_id' => auth()->user()->id
+                'admin_id' => auth()->user()->id,
+                'numberOfRequests'=>$request->numberOfRequests
             ]);
 
         return redirect()->back()->with("done", "تم تغير الحاله بنجاح");
@@ -58,7 +59,8 @@ class ModelController extends Controller
                 'message' => $request->message,
                 'status' => $request->status,
                 'workAfter' => $request->date,
-                'admin_id' => auth()->user()->id
+                'admin_id' => auth()->user()->id,
+                'numberOfRequests'=>$request->numberOfRequests
             ]);
 
         return redirect()->back()->with("done", "تم تغير الحاله بنجاح");

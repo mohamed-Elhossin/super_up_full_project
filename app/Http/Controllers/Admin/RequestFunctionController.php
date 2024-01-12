@@ -59,4 +59,10 @@ class RequestFunctionController extends Controller
         $data->save();
         return redirect()->back()->with("done", "تم تغير حاله الطلب بنجاح");
     }
+
+
+   public function allAllRequest(){
+    $data = Personal_form::all();
+    return view('adminpages.request.allRequests', compact('data'));
+   }
 }
