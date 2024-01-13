@@ -20,7 +20,7 @@
 
                         <label for=""> الاسم </label>
                         {{-- 1 --}}
-                        <input type="text" value="{{ old('name') }}" name="name" id="normalInput"
+                        <input type="text" required value="{{ old('name') }}" name="name" id="normalInput"
                             class="form-control @error('name') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="">نوع الهوية</label>
                         {{-- 2 --}}
-                        <select name="typeofId" id="selectInput"
+                        <select    name="typeofId" id="selectInput"
                             class="form-control @error('typeofId') is-invalid @enderror  " id="">
                             <option disabled selected> - الرجاء تحديد اخيار -</option>
                             <option value="بطاقه"> بطاقه احوال </option>
@@ -52,7 +52,7 @@
                         <label for="">رقم الهوية
                         </label>
                         {{-- 4 --}}
-                        <input type="number" value="{{ old('numberOfId') }}" name="numberOfId" id="normalInput"
+                        <input type="number" required value="{{ old('numberOfId') }}" name="numberOfId" id="normalInput"
                             class="form-control @error('numberOfId') is-invalid @enderror  ">
                         @error('numberOfId')
                             <span>لديك طلب بالفعل</span>
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label for=""> المنطقة</label>
                         {{-- 5 --}}
-                        <select   name="area" id="normalInput"
+                        <select    name="area" id="normalInput"
                             class="form-control @error('area') is-invalid @enderror  ">
                             <option disabled selected> - الرجاء تحديد اخيار -</option>
                             @foreach ($area as $item)
@@ -90,7 +90,7 @@
                         <label for="">تاريخ إنتهاء الهوية
                         </label>
                         {{-- 7 --}}
-                        <input type="date" value="{{ old('expire_data_id') }}" name="expire_data_id" id="normalInput"
+                        <input  required type="date" value="{{ old('expire_data_id') }}" name="expire_data_id" id="normalInput"
                             class="form-control @error('expire_data_id') is-invalid @enderror  ">
                         @error('expire_data_id')
                             <span> ارجو ادخال تاريخ صحيح </span>
@@ -101,7 +101,7 @@
                     <div class="form-group">
                         <label for=""> العمر</label>
                         {{-- 8 --}}
-                        <input type="number" value="{{ old('age') }}" name="age" id="normalInput"
+                        <input  required type="number" value="{{ old('age') }}" name="age" id="normalInput"
                             class=" numberInput form-control @error('age') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="form-group">
                         <label for="">الجنسية </label>
                         {{-- 9 --}}
-                        <input type="text" value="{{ old('nationality') }}" name="nationality" id="normalInput"
+                        <input required type="text" value="{{ old('nationality') }}" name="nationality" id="normalInput"
                             class="form-control @error('nationality') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -154,7 +154,7 @@
 
                         </label>
                         {{-- 13 --}}
-                        <input type="text" value="{{ old('employer') }}" name="employer" id="normalInput"
+                        <input required type="text" value="{{ old('employer') }}" name="employer" id="normalInput"
                             class="form-control @error('employer') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -216,7 +216,7 @@
                     <div class="form-group">
                         <label for=""> الدخل الشهري الإجمالي </label>
                         {{-- 18 --}}
-                        <input type="number" value="{{ old('total_salary') }}" name="total_salary"
+                        <input required type="number" value="{{ old('total_salary') }}" name="total_salary"
                             id="normalInput"
                             class=" numberInput form-control @error('total_salary') is-invalid @enderror  ">
 
@@ -227,7 +227,7 @@
                         <label for="">دخل من يسكنون معك
                         </label>
                         {{-- 19 --}}
-                        <input type="number" value="{{ old('total_salary_with_you') }}"
+                        <input  required type="number" value="{{ old('total_salary_with_you') }}"
                             name="total_salary_with_you" id="normalInput"
                             class=" numberInput form-control @error('total_salary_with_you') is-invalid @enderror  ">
                     </div>
@@ -295,7 +295,7 @@
 
                         </label>
                         {{-- 25 --}}
-                        <input type="text" value="{{ old('national_address') }}" name="national_address"
+                        <input required type="text" value="{{ old('national_address') }}" name="national_address"
                             id="normalInput" class="form-control @error('national_address') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -303,7 +303,7 @@
                     <div class="form-group">
                         <label for=""> الجوال</label>
                         {{-- 26 --}}
-                        <input type="text" value="{{ old('normalInput') }}" name="phone" id="normalInput"
+                        <input  required type="text" value="{{ old('normalInput') }}" name="phone" id="normalInput"
                             class="form-control @error('normalInput') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                         <label for=""> اسم المصرف
                         </label>
                         {{-- 27 --}}
-                        <input type="text" value="{{ old('normalInput') }}" name="bank" id="normalInput"
+                        <input  required type="text" value="{{ old('normalInput') }}" name="bank" id="normalInput"
                             class="form-control @error('normalInput') is-invalid @enderror    ">
                     </div>
                 </div>
@@ -322,7 +322,7 @@
 
                         </label>
                         {{-- 28 --}}
-                        <input type="text" value="{{ old('account_holder') }}" name="account_holder"
+                        <input required type="text" value="{{ old('account_holder') }}" name="account_holder"
                             id="normalInput" class="form-control @error('account_holder') is-invalid @enderror  ">
                     </div>
                 </div>
@@ -332,7 +332,7 @@
 
                         </label>
                         {{-- 29 --}}
-                        <input type="number" value="{{ old('account_number') }}" name="account_number"
+                        <input required type="number" value="{{ old('account_number') }}" name="account_number"
                             id="normalInput"
                             class="numberInput form-control @error('account_number') is-invalid @enderror  ">
                     </div>
@@ -341,7 +341,7 @@
                     <div class="form-group">
                         <label for="">وصف الطلب </label>
                         {{-- 30 --}}
-                        <textarea rows="6" value="{{ old('description_request') }}" name="description_request"
+                        <textarea   id="myTextArea" rows="6" value="{{ old('description_request') }}" name="description_request"
                             class="form-control @error('description_request') is-invalid @enderror  ">
                           </textarea>
                     </div>

@@ -33,9 +33,14 @@
                 </div>
             </div>
             <div class="col-md-4">
+
+
+
                 <div class="person">
-                    <p><i class="fa-solid fa-hotel"></i></p>
-                    <h2> تقديم الطلب للجهات </h2>
+                    <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <p><i class="fa-solid fa-hotel"></i></p>
+                        <h2> تقديم الطلب للجهات </h2>
+                    </a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -63,6 +68,23 @@
                     {{ $status->message }}
                 </div>
             @endif
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                غير متاح الان
+            </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
             </div>

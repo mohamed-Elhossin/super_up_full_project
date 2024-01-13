@@ -18,11 +18,11 @@ let myModelIconClose = document.querySelector('.myModel i ');
 
 
 
-if(myModelIconClose != null){
+if (myModelIconClose != null) {
     myModelIconClose.addEventListener("click", function () {
         myModel.classList.add("none");
     });
-}else{
+} else {
     console.log('hello');
 }
 
@@ -247,7 +247,7 @@ for (let i = 0; i < numberInput.length; i++) {
 
 // Confirmation box
 let CheckConfirmation = () => {
-    if(confirmationCheckbox != null){
+    if (confirmationCheckbox != null) {
         confirmationCheckbox.addEventListener("change", function () {
             if (this.checked) {
                 console.log("True confirmation");
@@ -308,3 +308,4 @@ sendButton.addEventListener("click", function () {
 
 
 
+document.getElementById("myTextArea").value = "r";
