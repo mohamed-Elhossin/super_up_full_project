@@ -79,99 +79,98 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            الاعضاء
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> اضافه عضو </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('users.listAll') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> عرض جميع الاعضاء </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('managers.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ادرايين</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('employee.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>الموظين</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('viewers.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> المشرفين </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @if (Auth::user()->rule == 'manager' || Auth::user()->rule == 'viewer')
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('models.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                النماذج
+                            </p>
+                        </a>
+                    </li>
+                @endif
+                @if (Auth::user()->rule == 'manager')
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                الاعضاء
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> اضافه عضو </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('users.listAll') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> عرض جميع الاعضاء </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('managers.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ادرايين</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('employee.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>الموظين</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('viewers.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> المشرفين </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
 
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('models.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            النماذج
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('city.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                المدن
 
-                        </p>
-                    </a>
-                </li>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('area.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                المناطق
 
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('city.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            المدن
+                            </p>
+                        </a>
+                    </li>
 
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('area.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            المناطق
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                اعدادات عامة
 
-                        </p>
-                    </a>
-                </li>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                سجل الاجراءات
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            اعدادات عامة
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            سجل الاجراءات
-
-                        </p>
-                    </a>
-                </li>
-
-
-
+                            </p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

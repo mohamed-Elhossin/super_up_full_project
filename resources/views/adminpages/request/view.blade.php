@@ -274,11 +274,18 @@
                 <div class="modal-body">
                     <form action="{{ route('admin.request.changeStatus', $data->id) }}" method="POST">
                         @csrf
-                        <button name="request_status" class="btn btn-info" value="الموافقه"> تم الموافقه </button>
-                        <button name="request_status" class="btn btn-warning" value="المراجعه"> تم المراجعه </button>
-                        <button name="request_status" class="btn btn-success" value="الاعتماد"> تم الاعتماد </button>
-                        <button name="request_status" class="btn btn-success" value="رفض"> تم الرفض </button>
-
+                        @if (Auth::user()->rule == 'manager')
+                            <button name="request_status" class="btn btn-success" value="رفض"> تم الرفض </button>
+                        @endif
+                        @if (Auth::user()->rule == 'manager'|| Auth::user()->rule == 'employee')
+                            <button name="request_status" class="btn btn-info" value="الموافقه"> تم الموافقه </button>
+                            <button name="request_status" class="btn btn-warning" value="المراجعه"> تم المراجعه
+                            </button>
+                        @endif
+                        @if (Auth::user()->rule == 'viewer' || Auth::user()->rule == 'manager')
+                            <button name="request_status" class="btn btn-success" value="الاعتماد"> تم الاعتماد
+                            </button>
+                        @endif
                     </form>
                 </div>
                 <div class="modal-footer justify-content-between">
