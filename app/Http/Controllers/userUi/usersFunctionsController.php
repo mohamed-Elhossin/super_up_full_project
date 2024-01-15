@@ -160,8 +160,10 @@ class usersFunctionsController extends Controller
 
     public function ifFindOldRequest(Request $request)
     {
+        
         $request->validate([
-            'numberOfId' => "required|size:10"
+            'numberOfId' => "required|size:10",
+            'g-recaptcha-response'=>'required|captcha'
         ]);
         $numberOfId = $request->numberOfId;
         $data = Personal_form::where('numberOfId', '=', $numberOfId)->first();

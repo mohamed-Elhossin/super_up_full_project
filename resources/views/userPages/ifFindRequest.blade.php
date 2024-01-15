@@ -22,10 +22,23 @@
                             <input type="number" required name='numberOfId' class="my-3 form-control">
                             @error('numberOfId')
                                 <span class="text-danger">
-                                ادخل هذا الحقل المكون من 10 ارقام
+                                    ادخل هذا الحقل المكون من 10 ارقام
                                 </span>
                             @enderror
                         </div>
+                        <div class="form-group ">
+                            <label for="">
+                                Google Recaptcha Key </label>
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            <br>
+                            <span class="text-danger">
+                                @error('g-recaptcha-response')
+                                    لابد من تحقيق الخانه
+                                @enderror
+                            </span>
+                        </div>
+
                         <br>
                         <div class="d-grid">
                             <button class="btn btn-success"> اكمل الطلب </button>

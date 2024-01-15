@@ -1,0 +1,24 @@
+.bigImage {
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 12321321;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none ;
+    justify-content: space-around;
+    align-items: center;
+}
+.bigImage .smallImage img{
+width: 100%;
+height: 80vh;
+}
+.allImages img {
+
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.allImages img:hover {
+    transform: scale(1.2, 1.2);
+}

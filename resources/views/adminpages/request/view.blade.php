@@ -2,13 +2,22 @@
 
 
 <div class="wrapper">
+    <div class="bigImage">
 
+        <div class="smallImage">
+            <img src="{{ asset('assets/img/Logo.png') }}" alt="">
+
+        </div>
+
+    </div>
     <!-- Navbar -->
     @include('adminpages.layout.nav')
     <!-- /.navbar -->
     @include('adminpages.layout.aside')
+
     <!-- Main Sidebar Container -->
     <div class="content-wrapper">
+
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -27,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <div class="row">
+                                <div class="row ">
                                     <div class="col-md-3">
                                         <h3 class="w-100 card-title text-center">
                                             عرض طلب رقم : {{ $data->request_number }}
@@ -65,11 +74,11 @@
                                 @endif
                                 <h6> حاله الطلب : {{ $data->request_status }} </h6>
                                 @if ($userName != null)
-                                <h6> تم تغير الحاله بواسطه :{{ $userName }} </h6>
-                                <h6> تاريخ تغير الحاله :{{ $data->change_statusDate }} </h6>
+                                    <h6> تم تغير الحاله بواسطه :{{ $userName }} </h6>
+                                    <h6> تاريخ تغير الحاله :{{ $data->change_statusDate }} </h6>
                                 @endif
 
-                                <table id="example1" class="table MyTableView  table-bordered table-striped">
+                                <table id="example1" class="table MyTableView  allImages table-bordered table-striped">
                                     <tr>
                                         <th> الاسم : </th>
                                         <th>{{ $data->name }}</th>
@@ -268,6 +277,8 @@
                         <button name="request_status" class="btn btn-info" value="الموافقه"> تم الموافقه </button>
                         <button name="request_status" class="btn btn-warning" value="المراجعه"> تم المراجعه </button>
                         <button name="request_status" class="btn btn-success" value="الاعتماد"> تم الاعتماد </button>
+                        <button name="request_status" class="btn btn-success" value="رفض"> تم الرفض </button>
+
                     </form>
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -280,26 +291,9 @@
     </div>
 
 
-    <div class="modal model2 fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"> تغير حاله الطلب </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-     
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+
+
+
     {{-- Footer --}}
     @include('adminpages.layout.footer')
 

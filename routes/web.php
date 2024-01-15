@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
         // List requests
         Route::get("allAllRequest", [RequestFunctionController::class, 'allAllRequest'])->name('admin.request.allAllRequest');
 
+        Route::get("refuse", [RequestFunctionController::class, 'refuse'])->name('admin.request.refuse');
+
         Route::get("allRequest", [RequestFunctionController::class, 'all'])->name('admin.request.all');
         Route::get("revasionRequest", [RequestFunctionController::class, 'revasion'])->name('admin.request.revasion');
         Route::get("approveRequest", [RequestFunctionController::class, 'approve'])->name('admin.request.approve');

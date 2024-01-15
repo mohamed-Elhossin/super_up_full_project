@@ -65,4 +65,12 @@ class RequestFunctionController extends Controller
     $data = Personal_form::all();
     return view('adminpages.request.allRequests', compact('data'));
    }
+   public function refuse()
+   {
+       $data = Personal_form::where('request_status', 'رفض')->get();
+
+       return view('adminpages.request.refuse', compact('data'));
+   }
+
+
 }

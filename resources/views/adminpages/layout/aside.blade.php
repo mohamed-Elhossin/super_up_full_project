@@ -71,7 +71,12 @@
                                 <p> المراجعه </p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="{{ route('admin.request.refuse') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> الطلبات المرفوضه </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
