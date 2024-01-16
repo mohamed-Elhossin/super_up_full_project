@@ -31,6 +31,10 @@
                                     عرض الاعضاء بالصالحيات
                                 </h3>
                             </div>
+                            <div class="form-group col-6">
+                                <label for="">بحث</label>
+                                <input type="text" id="myInput" placeholder="بحث" class="form-control">
+                            </div>
                             <!-- /.card-header -->
                             @if (Session::has('done'))
                                 <div class="card  card-success">
@@ -49,7 +53,7 @@
                             @endif
                             <div class="card-body">
                                 <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a>
-                                <table class="table table-bordered table-striped">
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>

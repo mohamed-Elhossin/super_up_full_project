@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
         //  Change Request Status
         Route::post("changeStatus/{id}", [RequestFunctionController::class, 'changeStatus'])->name('admin.request.changeStatus');
 
-
+        Route::get('export',[AdminPanelController::class,'export'])->name('data.export');
         // Manager And viewer
         Route::middleware('viewer')->group(function () {
             Route::prefix("models")->group(function () {

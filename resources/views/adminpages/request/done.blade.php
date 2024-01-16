@@ -26,14 +26,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    جميع الطلبات المقدمه
-                                </h3>
-                            </div>
+
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <div class="form-group col-6">
+                                    <label for="">بحث</label>
+                                    <input type="text" id="myInput" placeholder="بحث" class="form-control">
+                                </div>
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th> # </th>

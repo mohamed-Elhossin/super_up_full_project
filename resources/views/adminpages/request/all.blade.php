@@ -26,14 +26,17 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    جميع الطلبات المقدمه
-                                </h3>
-                            </div>
+
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <div class="form-group col-6">
+                                    <label for="">بحث</label>
+                                    <input type="text" id="myInput" placeholder="بحث" class="form-control">
+                                </div>
+                                <div class="form-group col-6">
+                                    <a href="{{route("data.export")}}" class="btn btn-info"> تنزيل اكسيل </a>
+                                </div>
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th> # </th>
@@ -57,7 +60,8 @@
                                                 <th>{{ $item->created_at }}</th>
                                                 <th> {{ $item->request_status }} </th>
                                                 <th><a class="btn btn-primary" title="عرض الطلب"
-                                                        href="{{ route('admin.request.view' , $item->id) }}"> عرض</a> </th>
+                                                        href="{{ route('admin.request.view', $item->id) }}"> عرض</a>
+                                                </th>
                                             </tr>
                                         @endforeach
                                     </tbody>

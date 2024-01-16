@@ -48,8 +48,12 @@
                             </div>
                         @endif
                             <div class="card-body">
+                                <div class="form-group col-6">
+                                    <label for="">بحث</label>
+                                    <input type="text" id="myInput" placeholder="بحث" class="form-control">
+                                </div>
                                 <a href="{{ route('area.create') }}" class="btn btn-info my-3"> اضافه </a>
-                                <table class="table table-bordered table-striped">
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>

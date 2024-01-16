@@ -10,6 +10,9 @@ use App\Models\Personal_form;
 
 class AdminPanelController extends Controller
 {
+    public function export(){
+        
+    }
 
     public function lockAuto()
     {

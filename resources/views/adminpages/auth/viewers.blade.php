@@ -14,13 +14,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>عرض  المشرفين  </h1>
+                        <h1>عرض المشرفين </h1>
                     </div>
 
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
+        <div class="form-group col-6">
+            <label for="">بحث</label>
+            <input type="text" id="myInput" placeholder="بحث" class="form-control">
+        </div>
         <section class="content">
             <div class="container-fluid col-md-8">
                 <div class="row">
@@ -49,7 +52,7 @@
                             @endif
                             <div class="card-body">
                                 <a href="{{ route('employee.create') }}" class="btn btn-info my-3"> اضافه </a>
-                                <table class="table table-bordered table-striped">
+                                <table id="myTable" class="table table-bordered table-striped">
                                     <tr>
                                         <th>#</th>
                                         <th>الاسم</th>
