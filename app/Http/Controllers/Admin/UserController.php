@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -68,6 +69,16 @@ class UserController extends Controller
         $users->name = $request->name;
         $users->email = $request->email;
         $users->phone = $request->phone;
+        $users->rule = $request->rule;
+
+
+        $messageAction = " تم تعديل عضو :   $users->name  ";
+        $admin_name = auth()->user()->name;
+        Tracking::create([
+            "action" => $messageAction,
+            'admin_name' => $admin_name
+        ]);
+
         $users->save();
         return redirect()->route("users.listAll")->with("done", "تم تعديل العضو بنجاح");
     }

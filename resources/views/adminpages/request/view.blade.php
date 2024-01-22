@@ -45,10 +45,17 @@
                                     <div class="col-md-3">
                                         <button onclick="printDiv('divToPrint')" class="btn btn-info">طباعه</button>
                                     </div>
+
                                     <div class="col-md-3">
                                         <button data-toggle="modal" data-target="#modal-default"
                                             class="btn btn-info">تغير حاله
                                             الطلب</button>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="{{ route("data.exportOne",$data->id) }}" class="btn btn-info">
+                                            تنزيل هذا الطلب اكسيل
+                                        </a>
                                     </div>
 
                                 </div>
@@ -277,7 +284,7 @@
                         @if (Auth::user()->rule == 'manager')
                             <button name="request_status" class="btn btn-success" value="رفض"> تم الرفض </button>
                         @endif
-                        @if (Auth::user()->rule == 'manager'|| Auth::user()->rule == 'employee')
+                        @if (Auth::user()->rule == 'manager' || Auth::user()->rule == 'employee')
                             <button name="request_status" class="btn btn-info" value="الموافقه"> تم الموافقه </button>
                             <button name="request_status" class="btn btn-warning" value="المراجعه"> تم المراجعه
                             </button>
@@ -309,7 +316,10 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+
+
 </div>
 <!-- ./wrapper -->
+
 
 @include('adminpages.layout.script')

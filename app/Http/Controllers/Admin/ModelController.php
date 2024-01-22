@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Tracking;
 
 class ModelController extends Controller
 {
@@ -42,9 +43,15 @@ class ModelController extends Controller
                 'status' => $request->status,
                 'workAfter' => $request->date,
                 'admin_id' => auth()->user()->id,
-                'numberOfRequests'=>$request->numberOfRequests
+                'numberOfRequests' => $request->numberOfRequests
             ]);
 
+        $messageAction = "تم تغير حاله النموذج";
+        $admin_name = auth()->user()->name;
+        Tracking::create([
+            "action" => $messageAction,
+            'admin_name' => $admin_name
+        ]);
         return redirect()->back()->with("done", "تم تغير الحاله بنجاح");
     }
     public function store(Request $request)
@@ -60,8 +67,16 @@ class ModelController extends Controller
                 'status' => $request->status,
                 'workAfter' => $request->date,
                 'admin_id' => auth()->user()->id,
-                'numberOfRequests'=>$request->numberOfRequests
+                'numberOfRequests' => $request->numberOfRequests
             ]);
+
+
+        $messageAction = " تم تغير حاله النموذج الي : $request->status ";
+        $admin_name = auth()->user()->name;
+        Tracking::create([
+            "action" => $messageAction,
+            'admin_name' => $admin_name
+        ]);
 
         return redirect()->back()->with("done", "تم تغير الحاله بنجاح");
     }

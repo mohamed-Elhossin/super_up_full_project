@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Exports\ExportOneRequest;
+use App\Models\User;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
 use App\Models\Personal_form;
+use App\Exports\RequestExportData;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class RequestFunctionController extends Controller
 {
@@ -57,20 +61,39 @@ class RequestFunctionController extends Controller
         $data->admin_id  = auth()->user()->id;
         $data->change_statusDate = now();
         $data->save();
+
+        $messageAction = "
+        تم تغير حالة طلب رقم : $data->request_number
+        الي : $data->request_status
+        ";
+        $admin_name = auth()->user()->name;
+        Tracking::create([
+            "action" => $messageAction,
+            'admin_name' => $admin_name
+        ]);
         return redirect()->back()->with("done", "تم تغير حاله الطلب بنجاح");
+
     }
 
 
-   public function allAllRequest(){
-    $data = Personal_form::all();
-    return view('adminpages.request.allRequests', compact('data'));
-   }
-   public function refuse()
-   {
-       $data = Personal_form::where('request_status', 'رفض')->get();
+    public function allAllRequest()
+    {
+        $data = Personal_form::all();
+        return view('adminpages.request.allRequests', compact('data'));
+    }
+    public function refuse()
+    {
+        $data = Personal_form::where('request_status', 'رفض')->get();
 
-       return view('adminpages.request.refuse', compact('data'));
-   }
+        return view('adminpages.request.refuse', compact('data'));
+    }
 
+    public function export()
+    {
+        return Excel::download(new RequestExportData, 'data.xlsx');
+    }
+    public function  exportOne($id){
+        return Excel::download(new ExportOneRequest($id), 'data.xlsx');
 
+    }
 }

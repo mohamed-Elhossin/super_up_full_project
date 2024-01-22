@@ -22,6 +22,7 @@ class EmployeeController extends Controller
     {
         $employees = User::where('id', $id)
             ->first();
+            
         // dd($employees->name);
         return view('adminpages.pages.employees.edit', compact('employees'));
     }
@@ -38,6 +39,7 @@ class EmployeeController extends Controller
         $employees->name = $request->name;
         $employees->email = $request->email;
         $employees->phone = $request->phone;
+        $employees->rule = $request->rule;
         $employees->save();
         return redirect()->route("employee.index")->with("done", "تم تعديل الموظف بنجاح");
     }

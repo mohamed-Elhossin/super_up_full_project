@@ -33,6 +33,9 @@
                                     <label for="">بحث</label>
                                     <input type="text" id="myInput" placeholder="بحث" class="form-control">
                                 </div>
+                                <div class="form-group col-6">
+                                    <a href="{{route("data.export")}}" class="btn btn-info"> تنزيل اكسيل </a>
+                                </div>
                                 <table id="myTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RequestFunctionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\userUi\usersFunctionsController;
 
 //   Routes
@@ -29,18 +30,25 @@ Route::middleware('auth')->group(function () {
     // Admin Routes
     Route::prefix("admin")->group(function () {
         Route::get('/', [AdminPanelController::class, 'index'])->name("admin.index");
-        // List requests
-        Route::get("allAllRequest", [RequestFunctionController::class, 'allAllRequest'])->name('admin.request.allAllRequest');
-        Route::get("refuse", [RequestFunctionController::class, 'refuse'])->name('admin.request.refuse');
-        Route::get("allRequest", [RequestFunctionController::class, 'all'])->name('admin.request.all');
-        Route::get("revasionRequest", [RequestFunctionController::class, 'revasion'])->name('admin.request.revasion');
-        Route::get("approveRequest", [RequestFunctionController::class, 'approve'])->name('admin.request.approve');
-        Route::get("doneRequest", [RequestFunctionController::class, 'done'])->name('admin.request.done');
-        Route::get("viewRequest/{id}", [RequestFunctionController::class, 'view'])->name('admin.request.view');
-        //  Change Request Status
-        Route::post("changeStatus/{id}", [RequestFunctionController::class, 'changeStatus'])->name('admin.request.changeStatus');
 
-        Route::get('export',[AdminPanelController::class,'export'])->name('data.export');
+        Route::prefix('request')->group(function () {
+            // export data in excel Sheet
+            // One
+            Route::get('/exportOne/{id}', [RequestFunctionController::class, 'exportOne'])->name("data.exportOne");
+            // all
+            Route::get('/export', [RequestFunctionController::class, 'export'])->name("data.export");
+            // List requests
+            Route::get("allAllRequest", [RequestFunctionController::class, 'allAllRequest'])->name('admin.request.allAllRequest');
+            Route::get("refuse", [RequestFunctionController::class, 'refuse'])->name('admin.request.refuse');
+            Route::get("allRequest", [RequestFunctionController::class, 'all'])->name('admin.request.all');
+            Route::get("revasionRequest", [RequestFunctionController::class, 'revasion'])->name('admin.request.revasion');
+            Route::get("approveRequest", [RequestFunctionController::class, 'approve'])->name('admin.request.approve');
+            Route::get("doneRequest", [RequestFunctionController::class, 'done'])->name('admin.request.done');
+            Route::get("viewRequest/{id}", [RequestFunctionController::class, 'view'])->name('admin.request.view');
+            //  Change Request Status
+            Route::post("changeStatus/{id}", [RequestFunctionController::class, 'changeStatus'])->name('admin.request.changeStatus');
+        });
+
         // Manager And viewer
         Route::middleware('viewer')->group(function () {
             Route::prefix("models")->group(function () {
@@ -85,6 +93,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [AreaController::class, 'edit'])->name("area.edit");
                 Route::post('/edit/{id}', [AreaController::class, 'update'])->name("area.update");
                 Route::get('/delete/{id}', [AreaController::class, 'destroy'])->name("area.destroy");
+            });
+            Route::prefix('recourd')->group(function () {
+
+                Route::get("listRecourd", [TrackingController::class, 'listRecourd'])->name('admin.listRecourd');
             });
         });
     });
